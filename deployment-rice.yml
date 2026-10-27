@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zomato
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fooddelivery
+  template:
+    metadata:
+      labels:
+        app: fooddelivery
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: food
+          image: vinaikumarp/qualityrices:v1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: crex
+          resources:
+            requests:
+              cpu: 100m
+              memory: 120Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
