@@ -39,6 +39,18 @@ This project demonstrates the deployment of a food delivery application on Kuber
 
 ## Useful Commands
 
+#create cluster by using reference command
+kops create cluster \
+  --name=vinai.k8s.local \
+  --zones=ap-northeast-1a \
+  --control-plane-count=1 \
+  --control-plane-size=c7i-flex.large \
+  --control-plane-volume-size=30 \
+  --node-count=2 \
+  --node-size=t3.micro \
+  --node-volume-size=20 \
+  --image=<ami-URL>
+
 
 #command to create Namespace for project
 kubectl create ns dev
@@ -46,6 +58,7 @@ kubectl create ns dev
 #command to create Secret for private docker hub image 
 kubectl create secret docker-registry dockerhub-secret --docker-username=<username> --docker-password=<GitHub-Access-Token> -n dev
 
+kubectl apply -f resourcequota.yml
 kubectl apply -f configmap.yml
 kubectl apply -f secret.yml
 kubectl apply -f deploy.yml
