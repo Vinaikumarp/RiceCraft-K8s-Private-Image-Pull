@@ -39,7 +39,12 @@ This project demonstrates the deployment of a food delivery application on Kuber
 
 ## Useful Commands
 
-```bash
+# create secret by using command
+kubectl create secret docker-registry dockerhub-secret --docker-username=<username> --docker-password=<GitHub-Access-Token> -n dev
+
+# create namespace for using command
+kubectl create ns dev
+
 kubectl apply -f configmap.yml
 kubectl apply -f secret.yml
 kubectl apply -f deploy.yml
