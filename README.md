@@ -39,8 +39,10 @@ This project demonstrates the deployment of a food delivery application on Kuber
 
 ## Useful Commands
 
+#command to create Secret for private docker hub image 
 kubectl create secret docker-registry dockerhub-secret --docker-username=<username> --docker-password=<GitHub-Access-Token> -n dev
 
+#command to create Namespace for project
 kubectl create ns dev
 
 kubectl apply -f configmap.yml
@@ -56,7 +58,6 @@ kubectl top pods -n dev
 kubectl top nodes
 
 ## Learning Outcomes
-
 - Understanding Kubernetes application deployment and orchestration.
 - Managing application configuration and credentials.
 - Working with private container registries.
@@ -66,5 +67,4 @@ kubectl top nodes
 ## Author
 
 **Vinay Kumar**
-
 DevOps | Docker | Kubernetes | AWS | CI/CD
