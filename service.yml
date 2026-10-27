@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-svc
+  namespace: dev
+spec:
+  type: LoadBalancer
+  selector:
+    app: fooddelivery
+  ports:
+    - port: 80
+      targetPort: 80

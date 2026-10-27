@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crex
+  namespace: dev
+data:
+  user: vinay
+  port: "80"
+
